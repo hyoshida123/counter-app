@@ -1,7 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+// import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
+/**
 class Counter extends React.Component {
   state = { count: 0 };
 
@@ -25,10 +26,25 @@ class Counter extends React.Component {
     );
   }
 }
+*/
 
 export default function App() {
-  return (<Counter />);
+  const [count, setCount] = useState(0);
+
+  return (
+    <View style={[styles.bg]}>
+        <View style={{ height: 100 }}>
+          <Text style={count < 5 ? styles.less : styles.greater}>{count}回タップした。</Text>
+        </View>
+        <View style={{ height: 100 }}>
+          <TouchableOpacity style={styles.button} onPress={() => setCount(count + 1)}>
+            <Text style={styles.buttonText}>Click</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+  );
 }
+
 
 const styles = StyleSheet.create({
   bg: { flex:1, paddingTop: 150, alignItems: 'center', backgroundColor: '#cbf35c' },
@@ -57,4 +73,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-*/ 
+*/
